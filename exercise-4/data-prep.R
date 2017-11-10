@@ -1,9 +1,12 @@
 # Data Prep
+library(dplyr)
 
 # LOAD DATA: read in the `wa-county-data.csv` and `wa-voter-turnout.csv` files
 raw.county.data <- read.csv('./data/wa-county-data.csv', stringsAsFactors = FALSE)
 raw.voter.data <- read.csv('./data/wa-voter-turnout.csv', stringsAsFactors = FALSE)
 
+# Fix encoding error
+colnames(raw.county.data)[1] <- "County.name"
 # DATA WRANGLING: clean and join the data frames
 
 # County data: remove commas and percent signs from numeric columns
